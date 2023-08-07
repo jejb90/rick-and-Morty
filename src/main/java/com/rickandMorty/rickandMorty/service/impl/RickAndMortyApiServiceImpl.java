@@ -2,7 +2,6 @@ package com.rickandMorty.rickandMorty.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rickandMorty.rickandMorty.dto.ApiResponse;
-import com.rickandMorty.rickandMorty.dto.CharacterDto;
 import com.rickandMorty.rickandMorty.dto.CharacterResult;
 import com.rickandMorty.rickandMorty.service.RickAndMortyApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

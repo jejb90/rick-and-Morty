@@ -4,7 +4,6 @@ import com.rickandMorty.rickandMorty.dto.CharacterDto;
 import com.rickandMorty.rickandMorty.dto.CharacterResult;
 import com.rickandMorty.rickandMorty.entities.Character;
 import com.rickandMorty.rickandMorty.exceptions.CharacterAlreadyRegisteredException;
-import com.rickandMorty.rickandMorty.mapper.CharacterMapper;
 import com.rickandMorty.rickandMorty.repository.CharacterRepository;
 import com.rickandMorty.rickandMorty.service.CharacterService;
 import com.rickandMorty.rickandMorty.service.RickAndMortyApiService;
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 
@@ -25,16 +23,13 @@ public class CharacterServiceImpl implements CharacterService {
 
     private final RickAndMortyApiService rickAndMortyApiService;
     private final CharacterRepository characterRepository;
-    private final CharacterMapper characterMapper;
 
     @Autowired
     public CharacterServiceImpl(
             RickAndMortyApiService rickAndMortyApiService,
-            CharacterRepository characterRepository,
-            CharacterMapper characterMapper) {
+            CharacterRepository characterRepository) {
         this.rickAndMortyApiService = rickAndMortyApiService;
         this.characterRepository = characterRepository;
-        this.characterMapper = characterMapper;
     }
     public List<CharacterDto> getAllCharacters() {
         List<CharacterResult> apiCharacters = rickAndMortyApiService.getAllCharactersFromApi();

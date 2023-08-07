@@ -1,14 +1,12 @@
 package com.rickandMorty.rickandMorty.controller;
 
 import com.rickandMorty.rickandMorty.dto.CharacterDto;
-import com.rickandMorty.rickandMorty.entities.Character;
 import com.rickandMorty.rickandMorty.exceptions.CharacterAlreadyRegisteredException;
 import com.rickandMorty.rickandMorty.service.CharacterService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +14,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/characters")
 public class CharacterController {
-
 
     private final CharacterService characterService;
 
