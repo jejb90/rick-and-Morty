@@ -24,14 +24,6 @@ public class CharacterController {
     }
 
     @GetMapping
-    public List<CharacterDto> getAllCharacters(@RequestParam(required = false) Integer page) {
-        if (page != null && page > 0) {
-            return characterService.getCharactersByPage(page);
-        }
-        return characterService.getAllCharacters();
-    }
-
-    @GetMapping("/search")
     public List<CharacterDto> getAllCharacters(@RequestParam Map<String, String> params) {
         return characterService.getAllCharacters(params);
     }
