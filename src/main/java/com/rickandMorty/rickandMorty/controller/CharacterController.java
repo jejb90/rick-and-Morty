@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/characters")
@@ -30,6 +31,10 @@ public class CharacterController {
         return characterService.getAllCharacters();
     }
 
+    @GetMapping("/search")
+    public List<CharacterDto> getAllCharacters(@RequestParam Map<String, String> params) {
+        return characterService.getAllCharacters(params);
+    }
     @GetMapping("/{name}")
     public ResponseEntity<CharacterDto> getCharacterByName(@PathVariable String name) {
         CharacterDto characterDto = characterService.getCharacterByName(name);

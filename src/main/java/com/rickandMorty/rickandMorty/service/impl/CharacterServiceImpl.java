@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 
@@ -50,6 +51,7 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
 
+
     @Override
     public List<CharacterDto> getCharactersByPage(int page) {
         List<CharacterResult> apiCharacters = rickAndMortyApiService.getCharactersByPage(page);
@@ -85,6 +87,14 @@ public class CharacterServiceImpl implements CharacterService {
             throw new CharacterAlreadyRegisteredException("The character was found in the BD.");
         }
         return mapDTO(characterRepository.save(mapEntity(characterDto)));
+    }
+
+    public List<CharacterDto> getAllCharacters(Map<String, String> params){
+        List<CharacterResult> apiCharacters = rickAndMortyApiService.getCharactersByParamsFromApi(params);
+        List<CharacterDto> apiCharacterDtos = apiCharacters.stream()
+                .map(this::mapCharacterResultToDto)
+                .collect(Collectors.toList());
+        return apiCharacterDtos;
     }
 
     private CharacterDto mapDTO(Character character){
