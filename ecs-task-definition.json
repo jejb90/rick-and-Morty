@@ -1,0 +1,71 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:471112768670:task-definition/farmacia-dog-production:3",
+  "containerDefinitions": [
+    {
+      "name": "farmacia-dog-production",
+      "image": "springio/gs-spring-boot-docker",
+      "cpu": 256,
+      "memoryReservation": 512,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "PORT",
+          "value": "80"
+        },
+        {
+          "name": "JAVA_OPTS",
+          "value": "-Xms256m -Xmx512m"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "systemControls": []
+    }
+  ],
+  "family": "farmacia-dog-production",
+  "taskRoleArn": "arn:aws:iam::471112768670:role/ecs-task-role-production",
+  "executionRoleArn": "arn:aws:iam::471112768670:role/ecs-task-execution-role-production",
+  "networkMode": "awsvpc",
+  "revision": 3,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": [
+    "EC2",
+    "FARGATE"
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512",
+  "registeredAt": "2024-04-30T09:42:41.386Z",
+  "registeredBy": "arn:aws:iam::471112768670:user/jejb.90@gmail.com",
+  "tags": [
+    {
+      "key": "Name",
+      "value": "service-farmacia-dog-production"
+    }
+  ]
+}
