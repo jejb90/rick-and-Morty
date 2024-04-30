@@ -7,10 +7,10 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: 471112768670.dkr.ecr.us-east-1.amazonaws.com/farmacia-dog-production
-  ECS_SERVICE_NAME: farmacia-dog-service
-  ECS_CLUSTER_NAME: farmacia-dog-cluster
-  ECS_TASK_DEFINITION: farmacia-dog-production
+  ECR_REPOSITORY: 471112768670.dkr.ecr.us-east-1.amazonaws.com/prod-serv-production
+  ECS_SERVICE_NAME: prod-serv-production
+  ECS_CLUSTER_NAME: ecs-cluster-production
+  ECS_TASK_DEFINITION:  prod-serv-production
 
 jobs:
   build-and-deploy:
@@ -23,8 +23,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ prod.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ prod.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
